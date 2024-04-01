@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Advance Three Js</title>
+    <link href="./src/css/index.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-exo {
+            font-family: 'Exo 2', sans-serif;
+        }
+        .font-lato {
+            font-family: 'Lato', sans-serif;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="flex h-screen bg-black text-white">
+    <div class="w-1/2 flex flex-col justify-center px-8">
+        <div style="max-width: 500px;" class="mx-auto">
+            <h1 class="font-bold uppercase text-4xl mb-8 font-exo leading-none">
+                Challenging the standard of space exploration
+            </h1>
+            <p class="text-gray-400 font-lato mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad alias dicta distinctio ducimus et
+                harum minima nam nisi odit pariatur quas reiciendis repellendus, tempora, ullam! Molestias nam velit
+                vitae.</p>
+            <div>
+                <a href="" class="bg-green-600 inline-block px-8 py-4 rounded-full font-lato">Learn more</a>
+            </div>
+        </div>
+    </div>
+    <div class="w-1/2" id="canvasContainer">
+        <canvas></canvas>
+    </div>
+</div>
+<script type="module" src="src/js/main.js"></script>
+</body>
+</html>
