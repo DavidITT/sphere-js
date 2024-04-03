@@ -37,7 +37,7 @@ getCountries().then(() => {
                 fragmentShader,
                 uniforms: {
                     globeTexture: {
-                        value: new THREE.TextureLoader().load('../src/img/globe.jpg')
+                        value: new THREE.TextureLoader().load('./src/img/globe.jpg')
                     }
                 }
             })
