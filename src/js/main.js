@@ -159,35 +159,7 @@ getCountries().then(() => {
 
         function animate() {
             requestAnimationFrame(animate)
-            renderer.render(scene, camera)
-
-            raycaster.setFromCamera(mouse, camera)
-
-            const intersects = raycaster.intersectObjects(group.children.filter(mesh => mesh.geometry.type === 'BoxGeometry'));
-
-            group.children.forEach((mesh) => {
-                mesh.material.opacity = 0.5
-            })
-
-            gsap.set(popUpEl, {
-                display: 'none'
-            })
-
-            for (let i = 0; i < intersects.length; i++) {
-                const box = intersects[i].object
-                box.material.opacity = 1;
-
-                box.addEventListener('click', () => {
-                    gsap.set(popUpEl, {
-                        display: 'block'
-                    });
-                    populationEl.innerHTML = box.country;
-                    populationValueEl.innerHTML = box.population;
-                });
-
-            }
-
-            renderer.render(scene, camera)
+            handleIntersections();
         }
 
         animate()
@@ -232,6 +204,10 @@ getCountries().then(() => {
                 mouse.yPrev = event.clientY
             }
         })
+
+        addEventListener('touchstart', () => {
+            handleIntersections();
+        });
 
         addEventListener('mouseup', () => {
             mouse.down = false
@@ -285,6 +261,32 @@ getCountries().then(() => {
             camera = new THREE.PerspectiveCamera(75, canvasContainer.offsetWidth / canvasContainer.offsetHeight, 0.1, 1000)
             camera.position.z = 15
         })
+
+        function handleIntersections() {
+            renderer.render(scene, camera);
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(group.children.filter(mesh => mesh.geometry.type === 'BoxGeometry'));
+
+            group.children.forEach((mesh) => {
+                mesh.material.opacity = 0.5;
+            });
+
+            gsap.set(popUpEl, {
+                display: 'none'
+            });
+
+            for (let i = 0; i < intersects.length; i++) {
+                const box = intersects[i].object;
+                box.material.opacity = 1;
+                gsap.set(popUpEl, {
+                    display: 'block'
+                });
+                populationEl.innerHTML = box.country;
+                populationValueEl.innerHTML = box.population;
+            }
+
+            renderer.render(scene, camera);
+        }
     }
 })
 
