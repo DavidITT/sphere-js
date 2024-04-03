@@ -7,6 +7,8 @@ import fragmentShader from '../shadders/fragment.glsl'
 //Atmosphere
 import atmosphereVertexShader from '../shadders/atmosphereVertex.glsl'
 import atmosphereFragmentShader from '../shadders/atmosphereFragment.glsl'
+import textureGlobe from '../img/globe.jpg'
+
 //Axios
 import axios from "axios";
 
@@ -37,7 +39,7 @@ getCountries().then(() => {
                 fragmentShader,
                 uniforms: {
                     globeTexture: {
-                        value: new THREE.TextureLoader().load('./src/img/globe.jpg')
+                        value: new THREE.TextureLoader().load(textureGlobe)
                     }
                 }
             })
