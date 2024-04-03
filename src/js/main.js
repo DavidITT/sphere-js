@@ -176,11 +176,15 @@ getCountries().then(() => {
             for (let i = 0; i < intersects.length; i++) {
                 const box = intersects[i].object
                 box.material.opacity = 1;
-                gsap.set(popUpEl, {
-                    display: 'block'
-                })
-                populationEl.innerHTML = box.country
-                populationValueEl.innerHTML = box.population
+
+                box.addEventListener('click', () => {
+                    gsap.set(popUpEl, {
+                        display: 'block'
+                    });
+                    populationEl.innerHTML = box.country;
+                    populationValueEl.innerHTML = box.population;
+                });
+
             }
 
             renderer.render(scene, camera)
